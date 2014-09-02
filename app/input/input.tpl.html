@@ -1,0 +1,45 @@
+<h1> Crear un Ticket</h1> 
+
+
+  <form name="ticketsForm">
+    <fieldset>
+    <ng-form name="ticketForm">
+
+    Nombre: <input name="name" type="text" data-ng-model="name" required/><br />
+
+    Apellido: <input name="apellido" type="text" data-ng-model="apellido" required/><br />
+    E-mail: <input name="email" type="email" data-ng-model="email" requiered/><br />
+    Celular: <input name="celular" type="text" data-ng-model="celular" required/><br />
+    Asunto: </br>
+    <select name="seleccionAsuntos" data-ng-model="seleccionAsuntos" ng-options="asunto as asunto.name for asunto in asuntos">
+    	<option value="">---seleccionar---</option>
+    </select></br>
+    
+    <p ng-show="seleccionAsuntos.name=='Problema' || seleccionAsuntos.name=='Queja' || seleccionAsuntos.name=='Sugerencia'">Servicio:</p>
+    <div ng-show="seleccionAsuntos.name=='Problema' || seleccionAsuntos.name=='Queja' || seleccionAsuntos.name=='Sugerencia'">
+    <select name="servicio"  data-ng-model="seleccionServicio" data-ng-options="servicio as servicio.name for servicio in servicios">
+    	<option value="">---seleccionar---</option>
+    </select></br>
+    </div>
+
+
+    
+    <p ng-show="seleccionAsuntos.name=='Problema' || seleccionAsuntos.name=='Queja' || seleccionAsuntos.name=='Sugerencia'">Problema:</p>
+    <select name="seleccionProblema" ng-show="seleccionAsuntos.name=='Problema' || seleccionAsuntos.name=='Queja' || seleccionAsuntos.name=='Sugerencia'" data-ng-model="seleccionProblema" data-ng-options="problema as problema.name for problema in problemas">
+    	<option value="">---seleccionar---</option>
+    </select></br>
+
+    </br>
+    <span ng-if="seleccionAsuntos.name=='Problema'">Problema:</span></br>
+    <span ng-if="seleccionAsuntos.name=='Queja'">Queja:</span></br>
+    <span ng-if="seleccionAsuntos.name=='Sugerencia'">Sugerencia:</span></br>
+      
+
+    <textarea name="textarea" ng-show="seleccionAsuntos.name=='Problema' || seleccionAsuntos.name=='Queja' || seleccionAsuntos.name=='Sugerencia'" rows="4" cols="50" ng-model="textarea"></textarea>
+
+    
+    <button data-ng-click="saveTickets(textarea)" ng-if="seleccionAsuntos.name=='Problema' || seleccionAsuntos.name=='Queja' || seleccionAsuntos.name=='Sugerencia'">Create</button>
+   </ng-form>
+   </fieldset>
+   </form>
+    

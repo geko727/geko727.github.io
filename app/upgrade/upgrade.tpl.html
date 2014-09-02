@@ -1,0 +1,38 @@
+
+<h1> Upgrade </h1>
+	<div >
+		<table ng-hide="showme" class="pure-table">
+	      <tr>
+	        <th>Nombre</th>
+	        <th>Apellido</th>
+	        <th>Email</th>
+	        <th>Celular</th>
+	        <th>Asunto</th>
+	        <th>Servicio</th>
+	        <th>Problema</th>
+	        <th>Texto</th>
+	        <th></th>
+	        <th></th>
+	      </tr>  
+	      <tr ng-repeat="ticket in allTickets">
+	        <td>{{ ticket.get('nombre') }}</td>
+	        <td>{{ ticket.get('apellido') }}</td>
+	        <td>{{ ticket.get('email') }}</td>
+	        <td>{{ ticket.get('celular') }}</td>
+	        <td>{{ ticket.get('asunto') }}</td>
+	        <td>{{ ticket.get('servicio') }}</td>
+	        <td>{{ ticket.get('problema') }}</td>
+	        <td>{{ ticket.get('texto') }}</td>
+	        <td><button class="pure-button" ng-click="showme = !showme">comentar</button></td>
+	        <td><button class="pure-button">cerrar</button></td>
+	      </tr>
+	    </table>
+    </div>
+
+    <div name="comment" ng-show="showme">
+    <fieldset>
+    <textarea rows="4" cols="50">Crea un comentario</textarea>
+    <button class="pure-button">comentar</button>
+	<button class="pure-button">cancelar</button>
+    </fieldset>
+    </div>
