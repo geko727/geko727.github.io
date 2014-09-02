@@ -41,7 +41,7 @@
         ticket.save(null, {
         success: function(ticket) {
         // Execute any logic that should take place after the object is saved.
-        alert('New object created with objectId: ' + ticket.id);
+        // alert('New object created with objectId: ' + ticket.id);
         },
         error: function(ticket, error) {
         // Execute any logic that should take place if the save fails.
